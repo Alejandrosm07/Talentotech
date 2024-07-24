@@ -1,0 +1,81 @@
+# Import libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = [1, 2, 2, 3, 4, 4, 5, 6] # [str
+print(x)
+
+y = [2, 3, 4, 4, 4, 6, 5, 7] # [kg]
+print(y)
+
+ # [m]
+# value_bmi_list will be calculated: bmi = w/(h^2)
+#value_bmi_list = [25,25,25] # init values [kg/m2]
+
+# Let´s use a dictionary ({key:value})
+# with the format {"str":list}
+
+             
+              #,
+              #"BMI":value_bmi_list}
+
+
+
+# Turn a dictionary into a dataframe
+
+#Regresion linel simple en Python
+# Datos
+x = np.array([1, 2, 2, 3, 4, 4, 5, 6])
+y = np.array([2, 3, 4, 4, 4, 6, 5, 7])
+df['xy'] = df['x'] * (df['x'] )
+df
+
+df['x'] = df['x'] * (df['x'] ** 2 )
+
+dfdata_dict = {"x":x,
+             "y":y,
+             "xy":df['x'] * (df['x'] )
+             }
+df = pd.DataFrame(data_dict)
+
+print(df)
+# Call a variable
+df
+# Calcular los coeficientes de la regresión
+n = len(x)
+sum_x = np.sum(x)
+sum_y = np.sum(y)
+sum_xy = np.sum(x * y)
+sum_x2 = np.sum(x ** 2)
+
+# Fórmula para el cálculo de la pendiente (beta1)
+beta1 = (n * sum_xy - sum_x * sum_y) / (n * sum_x2 - sum_x ** 2)
+
+# Fórmula para el cálculo de la intersección (beta0)
+beta0 = (sum_y - beta1 * sum_x) / n
+
+# Imprimir los coeficientes
+print("La ecuación de la regresión lineal simple es:")
+print("y = {:.2f} + {:.2f}x".format(beta0, beta1))
+
+import matplotlib.pyplot as plt
+
+# Crear la recta de regresión
+x_recta = np.linspace(np.min(x), np.max(x), 100)  # Valores de x para la recta
+y_recta = beta0 + beta1 * x_recta  # Valores de y para la recta
+
+# Graficar los datos y la recta
+plt.scatter(x, y, label='Datos')  # Graficar los datos originales
+plt.plot(x_recta, y_recta, color='blue', label='Recta de regresión')  # Graficar la recta
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Regresión Lineal Simple')
+plt.legend()
+plt.show()
+
+# Calcular la suma de residuos al cuadrado (SR)
+y_pred = beta0 + beta1 * x  # Valores de y predichos por la recta
+sr = np.sum((y - y_pred) ** 2)  # Suma de residuos al cuadrado
+(Sr ** 0.5) / n ** 0.5
+print("La suma de residuos al cuadrado (SR) es: {:.2f}".format(sr))
